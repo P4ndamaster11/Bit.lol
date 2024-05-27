@@ -1344,9 +1344,3 @@ if getgenv().Loot.Texture.Enabled then
         end
     end
 end
-
-getgenv().Speed = true
-getgenv().FakeMacro = false
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Allvideo/nukermode/main/Kit%20tools.txt"))() 
-end
-end)
