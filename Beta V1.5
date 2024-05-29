@@ -1,53 +1,18 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local allowedPlayers = {"p4nda_master11","Panda_bypasses","c00lKiDalt919","2taptae","m0thlab","ItzMase11"}
+ 
+game:GetService("Players").PlayerAdded:Connect(function(player)
+	local allowed = false
+ 
+	for i, name in ipairs(allowedPlayers) do
+		if name == player.Name then allowed = true end
+	end
+ 
+	if not allowed then player:Kick("Nice Try Your Not Allowed Find Some Other Place !!") end
+end)
 
-local Window = Rayfield:CreateWindow({
-   Name = "Bit",
-   LoadingTitle = "Bit",
-   LoadingSubtitle = "by Gengar and stunasyku",
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = Bit, -- Create a custom folder for your hub/game
-      FileName = "Gengar"
-   },
-   Discord = {
-      Enabled = false,
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-   },
-   KeySystem = true, -- Set this to true to use our key system
-   KeySettings = {
-      Title = "Key",
-      Subtitle = "Key System",
-      Note = "Buy a license of Bit.lol",
-      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"https://pastebin.com/raw/Aq1n0Yts"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-   }
-})
+wait("2.5")
 
-local MainTab = Window:CreateTab("Bit.lol", 17638009343) -- Title, Image
-local MainSection = MainTab:CreateSection("Bit.lol")
-
-Rayfield:Notify({
-   Title = "Executed, enjoy!",
-   Content = "start airing",
-   Duration = 2.5,
-   Image = 17638009343,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "Bit.lol",
-         Callback = function()
-         print("The user tapped Okay!")
-      end
-   },
-},
-})
-
-local Button = MainTab:CreateButton({
-   Name = "Bit.lol",
-   Callback = function()
-   if not LPH_OBFUSCATED then -- if obfuscated then just remove this
+if not LPH_OBFUSCATED then -- if obfuscated then just remove this
     getgenv().Loot = {
         ['Options'] = {
             ['Notifications'] = false,
@@ -1393,5 +1358,3 @@ if getgenv().Loot.Texture.Enabled then
         end
     end
 end
-   end,
-})
